@@ -1,10 +1,10 @@
-#include <cmath>
-#include <iostream>
+#include <cmath> // Needed for std::pow
+#include <iostream> // Needed for output
 
 namespace ExpMath
 {
-	// Class for middle of efloat **efloat = efloat *(*efloat) = efloat *zfloat
-    class zfloat
+	// Class for using: (efloat ** efloat == efloat *(* efloat) == efloat * zfloat)
+	class zfloat
     {
     private:
         float number;
@@ -33,7 +33,7 @@ namespace ExpMath
             return zfloat(number);
         }
 		
-        // Overload the multiplication operator to handle efloat *zfloat for exponentiation
+        // Overload the multiplication operator to handle (efloat * zfloat) for exponentiation
         efloat operator*(zfloat other)
         {
             return efloat(std::pow(number, float(other)));
@@ -70,18 +70,43 @@ namespace ExpMath
             return efloat(number / float(e));
         }
 
-        // Define +=, -=, *=, /= operators
+        // Define +=,++, -=, --, *=, /= operators
         efloat &operator+=(const efloat &e)
         {
             number += float(e);
             return *this;
         }
+		
+		efloat &operator++()
+		{
+			number++;
+			return * this;
+		}
+
+		efloat &operator++(int dummy)
+		{
+			eint preserve = *this;	// Preseve old number
+			number++;
+			return preserve;
+		}
 
         efloat &operator-=(const efloat &e)
         {
             number -= float(e);
             return *this;
         }
+		eint &operator--()
+		{
+			number--;
+			return * this;
+		}
+
+		eint &operator--(int dummy)
+		{
+			eint preserve = *this;	// Preserve old number
+			number--;
+			return preserve;
+		}
 
         efloat &operator*=(const efloat &e)
         {
@@ -219,18 +244,45 @@ namespace ExpMath
             return eint(number << int(e));
         }
 
-        // Define +=, -=, *=, /=, %= operators
+        // Define +=,++, -=, --, *=, /=, %= operators
         eint &operator+=(const eint &e)
         {
             number += int(e);
             return *this;
         }
+		
+		eint &operator++()
+		{
+			number++;
+			return * this;
+		}
+
+		eint &operator++(int dummy)
+		{
+			eint preserve = *this;	// Preseve old number
+			number++;
+			return preserve;
+		}
+
 
         eint &operator-=(const eint &e)
         {
             number -= int(e);
             return *this;
         }
+		
+		eint &operator--()
+		{
+			number--;
+			return * this;
+		}
+
+		eint &operator--(int dummy)
+		{
+			eint preserve = *this;	// Preserve old number
+			number--;
+			return preserve;
+		}
 
         eint &operator*=(const eint &e)
         {
