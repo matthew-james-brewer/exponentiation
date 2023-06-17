@@ -1,10 +1,10 @@
 #include <cmath> // Needed for std::pow
-#include <iostream> // Needed for output
+#include <iostream> // Needed for << / >> operators
 
 namespace ExpMath
 {
-	// Class for using: (efloat ** efloat == efloat *(* efloat) == efloat * zfloat)
-	class zfloat
+    // Class for middle of:(efloat ** efloat == efloat *(* efloat) == efloat * zfloat)
+    class zfloat
     {
     private:
         float number;
@@ -32,7 +32,7 @@ namespace ExpMath
         {
             return zfloat(number);
         }
-		
+
         // Overload the multiplication operator to handle (efloat * zfloat) for exponentiation
         efloat operator*(zfloat other)
         {
@@ -70,7 +70,7 @@ namespace ExpMath
             return efloat(number / float(e));
         }
 
-        // Define +=,++, -=, --, *=, /= operators
+        // Define +=, ++, -=, --, *=, /= operators
         efloat &operator+=(const efloat &e)
         {
             number += float(e);
@@ -83,9 +83,9 @@ namespace ExpMath
 			return * this;
 		}
 
-		efloat &operator++(int dummy)
+		efloat operator++(int dummy)
 		{
-			eint preserve = *this;	// Preseve old number
+			efloat preserve = *this;	// Preseve old number
 			number++;
 			return preserve;
 		}
@@ -95,15 +95,16 @@ namespace ExpMath
             number -= float(e);
             return *this;
         }
-		eint &operator--()
+		
+		efloat &operator--()
 		{
 			number--;
 			return * this;
 		}
 
-		eint &operator--(int dummy)
+		efloat operator--(int dummy)
 		{
-			eint preserve = *this;	// Preserve old number
+			efloat preserve = *this;	// Preserve old number
 			number--;
 			return preserve;
 		}
@@ -135,8 +136,7 @@ namespace ExpMath
             return is;
         }
     };
-// Class for middle of eint **eint = eint *(*eint) = eint *zint
-    class zint
+    class zint // Similar to zfloat, but for eint
     {
     private:
         int number;
@@ -150,7 +150,7 @@ namespace ExpMath
         }
     };
 
-    class eint
+    class eint // Similar to efloat
     {
     private:
         int number;
@@ -244,40 +244,37 @@ namespace ExpMath
             return eint(number << int(e));
         }
 
-        // Define +=,++, -=, --, *=, /=, %= operators
+        // Define +=, ++, -=, --, *=, /=, %= operators
         eint &operator+=(const eint &e)
         {
             number += int(e);
             return *this;
         }
-		
-		eint &operator++()
+        eint &operator++()
 		{
 			number++;
 			return * this;
 		}
 
-		eint &operator++(int dummy)
+		eint operator++(int dummy)
 		{
 			eint preserve = *this;	// Preseve old number
 			number++;
 			return preserve;
 		}
 
-
         eint &operator-=(const eint &e)
         {
             number -= int(e);
             return *this;
         }
-		
-		eint &operator--()
+        eint &operator--()
 		{
 			number--;
 			return * this;
 		}
 
-		eint &operator--(int dummy)
+		eint operator--(int dummy)
 		{
 			eint preserve = *this;	// Preserve old number
 			number--;
