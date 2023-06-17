@@ -13,7 +13,7 @@ Use ExpMath.h to create `eint`s to do `int` operations _and_ exponentiation. Use
 #include <iostream>
 
 int main() {
-	// Example using eint for integer exponentiation
+	// Example using eint for integer exponentiation (converts to floating points when exponentiating):
 	ExpMath::eint a(2);
 	ExpMath::eint b(3);
 	ExpMath::eint c(2);
