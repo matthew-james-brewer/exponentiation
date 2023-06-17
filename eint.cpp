@@ -1,7 +1,7 @@
 #include <cmath>
 #include <iostream>
 
-namespace MyMathLibrary
+namespace ExpMath
 {
 	// Class for middle of eint **eint = eint *(*eint) = eint *zint
 	class zint
