@@ -24,7 +24,7 @@ namespace ExpMath
         float number;
 
     public:
-        efloat() {}
+        efloat() {number = 0.0f;}
         efloat(float num) : number(num) {}
         efloat(const efloat &ext) : number(ext.number) {}
 
@@ -157,7 +157,7 @@ namespace ExpMath
         int number;
 
     public:
-        eint() {}
+        eint() {number = 0;}
         eint(int num) : number(num) {}
         eint(const eint &ext) : number(ext.number) {}
 
