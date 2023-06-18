@@ -93,31 +93,7 @@ namespace ExpMath
             return efloat(number / float(e));
         }
 		
-		// Extra operators
-        efloat operator^(const efloat &e) const
-        {
-            return efloat(number ^ float(e));
-        }
-
-        efloat operator&(const efloat &e) const
-        {
-            return efloat(number & float(e));
-        }
-
-        efloat operator|(const efloat &e) const
-        {
-            return efloat(number | float(e));
-        }
-
-        efloat operator>>(const efloat &e) const
-        {
-            return efloat(number >> float(e));
-        }
-
-        efloat operator<<(const efloat &e) const
-        {
-            return efloat(number << float(e));
-        }
+	
 
         // Define +=, ++, -=, --, *=, /= operators
         efloat &operator+=(const efloat &e)
