@@ -27,7 +27,12 @@ namespace ExpMath
         efloat() {number = 0.0f;}
         efloat(float num) : number(num) {}
         efloat(const efloat &ext) : number(ext.number) {}
-
+	
+		/*
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		                   𝐌𝐀𝐈𝐍 𝐒𝐄𝐂𝐓𝐈𝐎𝐍
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		*/
 		// Overload the *efloat operator to create a zfloat for exponentiation
         zfloat operator*()
         {
@@ -40,9 +45,26 @@ namespace ExpMath
             return efloat(std::pow(number, float(other)));
         }
 
+		/*
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		                 𝐄𝐍𝐃 𝐌𝐀𝐈𝐍 𝐒𝐄𝐂𝐓𝐈𝐎𝐍
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		*/
+		
         operator float() const
         {
             return number;
+        }
+		
+		// Handle bool operators
+        bool operator==(const efloat &e) const
+        {
+            return (number == float(e));
+        }
+
+        bool operator!=(const efloat &e) const
+        {
+            return (number != float(e));
         }
 
         // Define +, -, *, / operators
@@ -69,6 +91,32 @@ namespace ExpMath
         efloat operator/(const efloat &e) const
         {
             return efloat(number / float(e));
+        }
+		
+		// Extra operators
+        efloat operator^(const efloat &e) const
+        {
+            return efloat(number ^ float(e));
+        }
+
+        efloat operator&(const efloat &e) const
+        {
+            return efloat(number & float(e));
+        }
+
+        efloat operator|(const efloat &e) const
+        {
+            return efloat(number | float(e));
+        }
+
+        efloat operator>>(const efloat &e) const
+        {
+            return efloat(number >> float(e));
+        }
+
+        efloat operator<<(const efloat &e) const
+        {
+            return efloat(number << float(e));
         }
 
         // Define +=, ++, -=, --, *=, /= operators
@@ -123,13 +171,13 @@ namespace ExpMath
         }
 
         // Define << and >> operators
-        friend std::ostream &operator<<(std::ostream &os, const efloat &e)
+        friend std::ostream &operator<<(std::ostream &os, const efloat &e) const
         {
             os << float(e);
             return os;
         }
 
-        friend std::istream &operator>>(std::istream &is, efloat &e)
+        friend std::istream &operator>>(std::istream &is, efloat &e) const
         {
             float value;
             is >> value;
@@ -161,6 +209,11 @@ namespace ExpMath
         eint(int num) : number(num) {}
         eint(const eint &ext) : number(ext.number) {}
 
+		/*
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		                   𝐌𝐀𝐈𝐍 𝐒𝐄𝐂𝐓𝐈𝐎𝐍
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		*/
         // Overload the *eint operator to create a zint for exponentiation
         zint operator*()
         {
@@ -172,6 +225,12 @@ namespace ExpMath
         {
             return eint(std::pow(float(number), int(other)));
         }
+		
+		/*
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		                 𝐄𝐍𝐃 𝐌𝐀𝐈𝐍 𝐒𝐄𝐂𝐓𝐈𝐎𝐍
+		▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇
+		*/
 
         operator int() const
         {
@@ -333,13 +392,13 @@ namespace ExpMath
         }
 
         // Define << and >> operators
-        friend std::ostream &operator<<(std::ostream &os, const eint &e)
+        friend std::ostream &operator<<(std::ostream &os, const eint &e) const
         {
             os << int(e);
             return os;
         }
 
-        friend std::istream &operator>>(std::istream &is, eint &e)
+        friend std::istream &operator>>(std::istream &is, eint &e) const
         {
             int value;
             is >> value;
