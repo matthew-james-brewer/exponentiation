@@ -171,13 +171,13 @@ namespace ExpMath
         }
 
         // Define << and >> operators
-        friend std::ostream &operator<<(std::ostream &os, const efloat &e) const
+        friend std::ostream &operator<<(std::ostream &os, const efloat &e)
         {
             os << float(e);
             return os;
         }
 
-        friend std::istream &operator>>(std::istream &is, efloat &e) const
+        friend std::istream &operator>>(std::istream &is, efloat &e)
         {
             float value;
             is >> value;
@@ -392,13 +392,13 @@ namespace ExpMath
         }
 
         // Define << and >> operators
-        friend std::ostream &operator<<(std::ostream &os, const eint &e) const
+        friend std::ostream &operator<<(std::ostream &os, const eint &e)
         {
             os << int(e);
             return os;
         }
 
-        friend std::istream &operator>>(std::istream &is, eint &e) const
+        friend std::istream &operator>>(std::istream &is, eint &e)
         {
             int value;
             is >> value;
