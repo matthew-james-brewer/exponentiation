@@ -170,7 +170,7 @@ namespace ExpMath
         // Overload the multiplication operator to handle eint *zint for exponentiation
         eint operator*(zint other)
         {
-            return eint(std::pow(double(number), double(int(other))));
+            return eint(std::pow(float(number), int(other)));
         }
 
         operator int() const
