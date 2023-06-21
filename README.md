@@ -7,7 +7,8 @@ Use ExpMath.h to create `eint`s to do `int` operations _and_ exponentiation. Use
 2. Copy ExpMath.h into your directory.
 3. In your source code, type `#include "ExpMath.h"` and use the `ExpMath::eint`/`ExpMath::efloat` (or, if you prefer, use `using namespace ExpMath` and use `eint`/`efloat` instead).
 4. Use the `eint` to create normal integers, with Algol (`a ** b ** c = a ** (b ** c)`) exponentiation, and use `efloat` to do the same with floating-point numbers.
-## Example: 
+## Examples:
+### Basic:
 ``` cpp
 #include "ExpMath.h"
 #include <iostream>
@@ -30,5 +31,20 @@ int main() {
 	std::cout << "Result (efloat): " << result2 << std::endl;
 
 	return 0;
+}
+```
+### Interactive:
+``` cpp
+#include "ExpMath.h"
+#include <iostream>
+
+using namespace ExpMath;
+int main() {
+	eint i;
+	eint j;
+	std::cout << "Enter 2 integers." << std::endl;
+	std::cin >> i;
+    std::cin >> j;
+	std::cout << i << " ** " << j << " = " << i ** j << std::endl;
 }
 ```
