@@ -26,7 +26,7 @@ namespace ExpMath
 		public:
 			efloat()
 			{
-				number = 0.0 f;
+				number = 0.0;
 			}
 
 		efloat(float num): number(num) {}
